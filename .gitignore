@@ -2,3 +2,6 @@
 /DEMOLOG
 /Data_Generation
 /DemoScript
+/__pycache__
+/dist
+/build

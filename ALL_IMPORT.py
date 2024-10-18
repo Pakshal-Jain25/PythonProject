@@ -7,6 +7,7 @@ import numpy as np
 from fpdf import FPDF
 import time
 import os
+import sys
 import tkinter
 import random
 from datetime import datetime, timedelta

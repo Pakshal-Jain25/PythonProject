@@ -1,5 +1,14 @@
 from ALL_IMPORT import *
 
+def resource_path(relative_path):
+    """ Get the absolute path to the resource, works for dev and for PyInstaller """
+    try:
+        base_path = sys._MEIPASS  # Used when running as a bundled executable
+    except AttributeError:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
 def SavePDF(log, month_name, year, store_name, employee_name, day):
     # Set up the folder structure
     logs_folder = f'LOG/{year}/{month_name}/{day}/{store_name}/{employee_name}'
@@ -18,8 +27,9 @@ def SavePDF(log, month_name, year, store_name, employee_name, day):
         pdf.add_page()
 
         # Add fonts
-        pdf.add_font('DejaVu', '', 'DejaVu/DejaVuSans.ttf', uni=True)
-        pdf.add_font('DejaVu', 'B', 'DejaVu/DejaVuSans-Bold.ttf', uni=True)
+        pdf.add_font('DejaVu', '', resource_path('DejaVu/DejaVuSans.ttf'), uni=True)
+        pdf.add_font('DejaVu', 'B', resource_path('DejaVu/DejaVuSans-Bold.ttf'), uni=True)
+
         pdf.set_font('DejaVu', 'B', 12)
 
         pdf.set_text_color(137,249,221)

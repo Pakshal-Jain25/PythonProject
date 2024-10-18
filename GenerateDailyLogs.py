@@ -41,13 +41,14 @@ def generate_daily_logs(store, visitors, month, day, employees):
         
         # Include the required visitor details and assign the employee and visit time
         log_entry = {
-            "Visitor name": visitor['Visitor name'],
-            "Visitor address": visitor['Visitor address'],
-            "Visitor date of birth": visitor['Visitor date of birth'],
+            "Visitor ID": visitor['visitor_id'],
+            "Visitor name": visitor['visitor_name'],
+            "Visitor address": visitor['visitor_address'],
+            "Visitor date of birth": visitor['visitor_date_of_birth '],
             "Current address": "  ",
             "Telephone number": "  ",
-            "Email address": visitor['Email address'],
-            "Test Result": visitor['issue'],
+            "Email address": visitor['visitor_email'],
+            "Test Result": visitor['visitor_issue'],
             "Test Location": store['location'],
             "Test Date": visit_time.strftime("%Y.%m.%d"), #Visiting Date
             "Test Time": visit_time.strftime("%H:%M"),  # Visiting time
